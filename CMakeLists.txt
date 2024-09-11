@@ -1147,7 +1147,7 @@ if("${CMAKE_SYSTEM_NAME}" STREQUAL "Darwin")
     list(LENGTH CMAKE_OSX_ARCHITECTURES architecture_count)
     if(NOT ${archs_standard} EQUAL -1 OR architecture_count GREATER 1)
         set(universal_build ON)
-        set(ASTCENC_UNIVERSAL_BUILD astcenc-none-static)
+        set(ASTCENC_LIB_TARGET astcenc-none-static)
     endif()
     # Set ordinary variable to override astc-encoder option's ON default
     # and hide the option.
