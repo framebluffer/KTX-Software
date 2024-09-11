@@ -1213,6 +1213,7 @@ add_subdirectory(external/astc-encoder)
 if(NOT DEFINED ASTCENC_LIB_TARGET)
   set(ASTCENC_LIB_TARGET astcenc-none-static)
 endif()
+message(STATUS "ASTCENC_LIB_TARGET: ${ASTCENC_LIB_TARGET}")
 set_property(TARGET ${ASTCENC_LIB_TARGET} PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_compile_definitions(
     ${ASTCENC_LIB_TARGET}
