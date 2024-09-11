@@ -1210,6 +1210,9 @@ endif()
 
 set(ASTCENC_CLI OFF) # Only build as library not the CLI astcencoder
 add_subdirectory(external/astc-encoder)
+if(NOT ${ASTCENC_LIB_TARGET})
+  set(ASTCENC_LIB_TARGET astcenc-none-static)
+endif()
 set_property(TARGET ${ASTCENC_LIB_TARGET} PROPERTY POSITION_INDEPENDENT_CODE ON)
 target_compile_definitions(
     ${ASTCENC_LIB_TARGET}
