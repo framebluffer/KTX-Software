@@ -1147,6 +1147,7 @@ if("${CMAKE_SYSTEM_NAME}" STREQUAL "Darwin")
     list(LENGTH CMAKE_OSX_ARCHITECTURES architecture_count)
     if(NOT ${archs_standard} EQUAL -1 OR architecture_count GREATER 1)
         set(universal_build ON)
+        set(ASTCENC_UNIVERSAL_BUILD astcenc-none-static)
     endif()
     # Set ordinary variable to override astc-encoder option's ON default
     # and hide the option.
@@ -1162,6 +1163,8 @@ endif()
 # On x86_64, if neither ASTCENC_ISA_SSE41 nor ASTCENC_ISA_SSE2 are defined,
 # choose ASTCENC_ISA_AVX2. If ASTCENC_ISA_AVX2 fails to compile user must
 # choose another x86_64 option.
+
+message(STATUS "ASTCENC_LIB_TARGET: ${ASTCENC_LIB_TARGET}")
 
 if(NOT ${universal_build})
     set(ASTCENC_ISA_NATIVE OFF)
